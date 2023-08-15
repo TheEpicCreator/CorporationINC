@@ -11,6 +11,32 @@
     <div id="container"/>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <script>
+      (function (originalFetch) {
+        const changeUrl = function (url) {
+          //TODO: Check url parameter and modify as needed
+          console.log(url)
+          if (url != "https://cache.armorgames.com/assets/agi/AGI.swf") return
+          console.log("Url found redirecting...")
+          return "https://cdn.jsdelivr.net/gh/TheEpicCreator/CorporationINC/AGI.swf";
+        };
+        window.fetch = function () {
+          let a = Array.from(arguments);
+          if (typeof (a[0]) === "string") {
+            //Argument to fetch() call is a raw URL string
+            a[0] = changeUrl(a[0]);
+          } else if (a[0] && typeof (a[0].url) === "string") {
+            //Argument to fetch() call is a request object
+            //HACK: This replaces the entire request object with an URL
+            //      because the Request.url property is readonly.
+            //      This is appropriate for GET requests only.
+            const changedUrl = changeUrl(a[0].url);
+            if (changedUrl !== a[0].url) {
+              a[0] = changedUrl;
+            }
+          }
+          return originalFetch.apply(window, a);
+        };
+      })(window.fetch);
       window.RufflePlayer = window.RufflePlayer || {};
       window.addEventListener("load", (event) => {
           const ruffle = window.RufflePlayer.newest();
