@@ -15,7 +15,7 @@
         const changeUrl = function (url) {
           //TODO: Check url parameter and modify as needed
           console.log(url)
-          if (url != "https://cache.armorgames.com/assets/agi/AGI.swf") return
+          if (url != "https://cache.armorgames.com/assets/agi/AGI.swf") return url
           console.log("Url found redirecting...")
           return "https://cdn.jsdelivr.net/gh/TheEpicCreator/CorporationINC/AGI.swf";
         };
