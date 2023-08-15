@@ -1,7 +1,9 @@
 <Module>
 <ModulePrefs title="Retro Bowl"/>
 <Content type="html">
-<![CDATA[ <head>
+<![CDATA[ 
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+<head>
 <link href="https://cdn.jsdelivr.net/gh/AndreajnRcm4/b398dl2h74v@9a23fbb2373d743a564873251cbb57736ebc1f73/style.css" rel="stylesheet" type="text/css">
 </head><body dir="ltr"><script>var gameConfig={swfUrl:"https://cdn.jsdelivr.net/gh/TheEpicCreator/CorporationINC/Corp.swf"};</script>
 <div id="waflashContainer">
