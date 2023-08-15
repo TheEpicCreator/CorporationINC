@@ -16,8 +16,8 @@
           const ruffle = window.RufflePlayer.newest();
           const player = ruffle.createPlayer();
           const container = document.getElementById("container");
-          container.style.width = "100%";
-          container.style.height = "100%";
+          player.style.width = "100%";
+          player.style.height = "100%";
           container.appendChild(player);
           player.load("https://cdn.jsdelivr.net/gh/TheEpicCreator/CorporationINC/Corp.swf");
       });
